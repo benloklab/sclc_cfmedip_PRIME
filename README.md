@@ -11,7 +11,7 @@ PRIME was developed and tested using R version 3.6.1 on a high-performance compu
 
 ## Running the pipeline
 The R scripts in this repository should be run in the following sequence:
-1.
+1. MeDEStrand code
 2.
 3. 
 4. 
