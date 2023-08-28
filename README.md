@@ -12,7 +12,7 @@ PRIME was developed and tested using R version 3.6.1 on a high-performance compu
 ## Running the pipeline
 The R scripts in this repository should be run in the following sequence:
 
-- MeDEStrand code
+- step0.medestrand.converter.R
 - step1.data.splitter.R
 - step2.CpG.per.window.R
 - step3.PBL.depleted.windows.finder.R
