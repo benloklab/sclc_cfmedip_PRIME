@@ -1,4 +1,5 @@
-# sclc_cfmedip_PRIME
+# SCLC cfMeDIP PRIME
+## Peripheral blood leukocyte methylation (PRIME) subtraction
 This repository describes the pipeline used in the following publication: Cell-free DNA methylation-defined prognostic subgroups in small-cell lung cancer identified by leukocyte methylation subtraction
 doi: 10.1016/j.isci.2022.105487. Code written by Sami Ul Haq, MSc.
 
