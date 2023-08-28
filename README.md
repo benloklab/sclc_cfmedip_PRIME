@@ -19,4 +19,32 @@ The R scripts in this repository should be run in the following sequence:
 - step4.selecting.PRIME.windows.R
 
 ## Running the PRIME pipeline
-Each script should be run on an HPC node with **~24-48hrs** time allocated and **60GB of memory**.
+Each script should be run on an HPC node with **~24-48hrs** time allocated and **60GB of memory** in the following manner:
+
+The first step involves converting cfMeDIP-seq counts data to EPIC/450K-style beta-values
+```bash
+Rscript step0.medestrand.converter.R DIRECTORY_WITH_BAM_FILES
+```
+
+The next step is breaking up the massive chr1-22 genome-wide 300bp matrix (obtained in the previous step) into smaller chunks to ease computation
+```bash
+Rscript step1.data.splitter.R
+```
+
+Subsequently, the CpG density for each 300bp window needs to be caculated. Here the smaller chunks from the previous steps need to be passed 
+```bash
+for EACHFILE in $(ls PBL.depleted.windows.part*.RData)
+do
+sbatch step2.CpG.per.window.R.sh $EACHFILE
+done
+```
+
+Then, the windows in PBLs with beta-values cutoffs are identified and saved
+```bash
+Rscript step3.PBL.depleted.windows.finder.R
+```
+
+Lastly, the CpG density data and the beta-value cutoffs are both examined and the final PRIME windows selected
+```bash
+Rscript step4.selecting.PRIME.windows.R
+```
