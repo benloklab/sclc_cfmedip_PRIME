@@ -9,7 +9,7 @@ While we utilized a specific criterion (median beta per window < 0.2 and CG-dens
 ## Software requirements
 PRIME was developed and tested using R version 3.6.1 on a high-performance computing cluster with a minimum memory of 60GB. 
 
-## Running the pipeline
+## Script order
 The R scripts in this repository should be run in the following sequence:
 
 - step0.medestrand.converter.R
@@ -18,3 +18,5 @@ The R scripts in this repository should be run in the following sequence:
 - step3.PBL.depleted.windows.finder.R
 - step4.selecting.PRIME.windows.R
 
+## Running the PRIME pipeline
+Each script should be run on an HPC node with **~24-48hrs** time allocated and **60GB of memory**.
