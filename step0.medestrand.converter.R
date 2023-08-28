@@ -28,7 +28,10 @@ shift = 0
 ws = 300
 chr.select = paste0('chr', c(1:22) )
 
-bam.files.names <- Sys.glob("*bam")
+args <- commandArgs(trailingOnly=TRUE)
+directory.to.use <- args[1]
+
+bam.files.names <- Sys.glob(paste0(directory.to.use, "/*bam"))
 
 # creates 300bp tiled genome for chromosomes 1 - 22
 genome_300bp <- data.frame(genomeBlocks(BSgenome.Hsapiens.UCSC.hg19, chrs=seqnames(BSgenome.Hsapiens.UCSC.hg19)[1:22], width=300))
